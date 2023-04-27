@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:42:25 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/04/26 10:18:25 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/04/27 13:31:00 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,17 @@ typedef struct s_map_check
 {
 	int	coin;
 	int	player;
-	int	obj;
+	int	items;
 	int	exit;
 	int	exit_x;
 	int	exit_y;
 }		t_map_check;
+
+
+
+//	PARSING
+
+int get_map_width(char **argv);
+int is_valid_extension(char *arg);
 
 #endif

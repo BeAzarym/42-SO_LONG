@@ -1,13 +1,14 @@
 NAME	=	so_long
 
 SRC	=	main.c \
+		parsing/map_parser.c \
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC))
 
 OBJS =	$(SRCS:.c=.o)
 
-LIBFT = make -C include/libft
-MLX = make -C include/mlx
+LIBFT = make -C ./src/libft
+# MLX = make -C mlx
 
 INC_DIR = include
 SRC_DIR = src
@@ -22,20 +23,19 @@ RM	=	@rm -rf
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-libft :
-	@$(LIBFT)
-	@$(MLX)
 all:	$(NAME)
 
-$(NAME): libft	$(OBJS) 
-	$(CC) $(CFLAGS) -I $(INC_DIR) -o $(NAME) $(OBJS)
+$(NAME): 	$(OBJS) 
+	$(LIBFT)
+	$(CC) $(CFLAGS) -Isrc/libft -I $(INC_DIR) -o $(NAME) $(OBJS) -Lsrc/libft -lft
 
 clean:
 	$(RM) $(OBJS)
-	
-	
+	make -C ./src/libft clean
+
 fclean:	clean
 	$(RM) $(NAME)
+	make -C ./src/libft fclean
 
 re:	fclean all 
 
