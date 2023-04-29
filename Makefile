@@ -2,6 +2,8 @@ NAME	=	so_long
 
 SRC	=	main.c \
 		parsing/map_parser.c \
+		parsing/init_struct.c \
+		utils/ft_error.c \
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC))
 
