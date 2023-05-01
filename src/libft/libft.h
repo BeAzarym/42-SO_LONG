@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 12:10:00 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/01 10:57:04 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/01 14:04:41 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,6 @@ int					ft_print_char(char c);
 int					ft_printf(const char *format, ...);
 char				*get_next_line(int fd);
 void				ft_print_array(char **array);
+char				**ft_arraydup(char **array, int size);
 
 #endif

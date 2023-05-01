@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:42:25 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/01 11:48:08 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/01 17:52:07 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define ERR_MALLOC_CRASH "[ERROR]	Malloc failed!\n"
 # define ERR_INVALID_MAP_SHAPE "[ERROR]	Map must be rectangular.\n"
 # define ERR_MAP_WALL "[ERROR]	Map must be closed by wall.\n"
+# define ERR_PATHFINDING "[ERROR]	Map is not playable.\n"
 
 typedef struct s_map_data
 {
@@ -44,10 +45,17 @@ typedef struct s_map_data
 typedef struct s_map
 {
 	char		**map;
-	char		**map_cpy;
 	int			map_length;
 	int			map_width;
 }				t_map;
+
+typedef struct s_player
+{
+	int			x;
+	int			y;
+	int			coin;
+	int			move;
+}				t_player;
 
 typedef struct s_game
 {
@@ -57,16 +65,18 @@ typedef struct s_game
 	int			w_width;
 	t_map_data	*map_data;
 	t_map		*map;
+	t_player	*player;
 }				t_game;
 
 //	PARSING
 
 int				is_valid_extension(char *arg);
 char			**get_map(char **argv, t_game *game);
-int				is_valid_map(t_map *map);
 void			get_map_items(t_game *game);
+int				is_valid_map(t_map *map);
 int				is_expected_shape(t_game *game);
 int				is_closed_map(t_game *game);
+int				path_finding(t_game *game, char **map, int x, int y);
 
 // INIT STRUCT
 t_game			*init_game_struct(t_game *game);

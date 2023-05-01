@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 13:40:02 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/01 10:57:30 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/01 11:53:19 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_substr(char const *s, unsigned int start, int len)
 {
-	int	i;
+	int		i;
 	char	*str;
 
 	if (!s)

@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:44:31 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/01 11:45:45 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/01 11:52:25 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static int	get_map_width(char **argv)
 	close(fd);
 	return (line_count);
 }
-
 
 char	**get_map(char **argv, t_game *game)
 {

@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 18:17:15 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/04/29 21:07:12 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/01 18:03:34 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,21 @@ static t_map	*init_map_struct(t_game *game)
 	if (!game->map)
 		ft_free(game, ERR_MALLOC_CRASH);
 	game->map->map = NULL;
-	game->map->map_cpy = NULL;
 	game->map->map_length = 0;
 	game->map->map_width = 0;
 	return (game->map);
+}
+
+static t_player	*init_player_data(t_game *game)
+{
+	game->player = malloc(sizeof(t_player));
+	if (!game->player)
+		ft_free(game, ERR_MALLOC_CRASH);
+	game->player->x = -1;
+	game->player->y = -1;
+	game->player->coin = 0;
+	game->player->move = 0;
+	return (game->player);
 }
 
 t_game	*init_game_struct(t_game *game)
@@ -54,6 +65,10 @@ t_game	*init_game_struct(t_game *game)
 	game->map = NULL;
 	game->map = init_map_struct(game);
 	if (!game->map)
+		ft_free(game, ERR_MALLOC_CRASH);
+	game->player = NULL;
+	game->player = init_player_data(game);
+	if (!game->player)
 		ft_free(game, ERR_MALLOC_CRASH);
 	return (game);
 }

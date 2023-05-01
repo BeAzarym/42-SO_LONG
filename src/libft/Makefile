@@ -40,6 +40,7 @@ SRCS	=	ft_atoi.c \
 					ft_printf.c \
 					get_next_line.c \
 					ft_print_array.c \
+					ft_arraydup.c \
 
 SRCS_BONUS = ft_lstnew_bonus.c \
 					ft_lstadd_front_bonus.c \

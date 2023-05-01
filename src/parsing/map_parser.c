@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 11:21:47 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/01 11:49:09 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/01 11:52:51 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	is_valid_map(t_map *map)
 	}
 	return (1);
 }
+
 int	is_expected_shape(t_game *game)
 {
 	int	y;
@@ -70,6 +71,7 @@ static int	is_wallful(char *str)
 	}
 	return (1);
 }
+
 int	is_closed_map(t_game *game)
 {
 	int	y;

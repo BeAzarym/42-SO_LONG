@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 18:43:19 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/04/29 20:53:28 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/01 18:01:46 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,22 @@ void	free_tab(char **array)
 	}
 	free(array);
 }
+
 void	free_map_struct(t_map *map)
 {
 	if (!map)
 		return ;
 	free_tab(map->map);
-	free_tab(map->map_cpy);
 	free(map);
 }
+
 void	ft_free(t_game *game, char *error_msg)
 {
 	if (game)
 	{
 		free(game->map_data);
 		free_map_struct(game->map);
+		free(game->player);
 		free(game);
 	}
 	if (error_msg)

@@ -6,6 +6,7 @@ SRC	=	main.c \
 		parsing/arg_parser.c \
 		parsing/items_parser.c \
 		parsing/init_struct.c \
+		parsing/pathfinding.c \
 		utils/ft_error.c \
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC))
