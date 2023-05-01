@@ -6,54 +6,54 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 18:17:15 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/04/29 19:03:54 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/04/29 21:07:12 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-static t_map_data	*init_map_data_struct(t_map_data *map)
+static t_map_data	*init_map_data_struct(t_game *game)
 {
-	map = malloc(sizeof(t_map_data));
-	if (!map)
-		return (NULL);
-	map->coin = 0;
-	map->player = 0;
-	map->items = 0;
-	map->exit = 0;
-	map->exit_x = -1;
-	map->exit_y = -1;
-	return (map);
+	game->map_data = malloc(sizeof(t_map_data));
+	if (!game->map_data)
+		ft_free(game, ERR_MALLOC_CRASH);
+	game->map_data->coin = 0;
+	game->map_data->player = 0;
+	game->map_data->items = 0;
+	game->map_data->exit = 0;
+	game->map_data->exit_x = -1;
+	game->map_data->exit_y = -1;
+	return (game->map_data);
 }
 
-static t_map	*init_map_struct(t_map *map)
+static t_map	*init_map_struct(t_game *game)
 {
-	map = malloc(sizeof(t_map));
-	if (!map)
-		return (NULL);
-	map->map = NULL;
-	map->map_cpy = NULL;
-	map->map_length = 0;
-	map->map_width = 0;
-	return (map);
+	game->map = malloc(sizeof(t_map));
+	if (!game->map)
+		ft_free(game, ERR_MALLOC_CRASH);
+	game->map->map = NULL;
+	game->map->map_cpy = NULL;
+	game->map->map_length = 0;
+	game->map->map_width = 0;
+	return (game->map);
 }
 
 t_game	*init_game_struct(t_game *game)
 {
 	game = malloc(sizeof(t_game));
 	if (!game)
-		return (NULL);
+		ft_free(game, ERR_MALLOC_CRASH);
 	game->mlx = NULL;
 	game->windows = NULL;
 	game->w_height = 0;
 	game->w_width = 0;
 	game->map_data = NULL;
-	game->map_data = init_map_data_struct(game->map_data);
+	game->map_data = init_map_data_struct(game);
 	if (!game->map_data)
-		return (NULL);
+		ft_free(game, ERR_MALLOC_CRASH);
 	game->map = NULL;
-	game->map = init_map_struct(game->map);
+	game->map = init_map_struct(game);
 	if (!game->map)
-		return (NULL);
+		ft_free(game, ERR_MALLOC_CRASH);
 	return (game);
 }

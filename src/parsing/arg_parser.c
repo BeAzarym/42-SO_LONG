@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   arg_parser.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 13:27:59 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/01 10:55:10 by cchabeau         ###   ########.fr       */
+/*   Created: 2023/05/01 09:59:58 by cchabeau          #+#    #+#             */
+/*   Updated: 2023/05/01 10:00:30 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../include/so_long.h"
 
-int	ft_strlen(const char *s)
+int	is_valid_extension(char *arg)
 {
-	int	i;
+	char	*resultat;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	resultat = ft_strnstr(arg, ".ber", ft_strlen(arg));
+	if (!resultat)
+		return (0);
+	if (resultat && *(resultat + 4) == '\0')
+		return (1);
+	return (0);
 }

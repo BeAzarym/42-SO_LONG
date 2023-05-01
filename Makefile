@@ -2,6 +2,9 @@ NAME	=	so_long
 
 SRC	=	main.c \
 		parsing/map_parser.c \
+		parsing/get_map.c \
+		parsing/arg_parser.c \
+		parsing/items_parser.c \
 		parsing/init_struct.c \
 		utils/ft_error.c \
 

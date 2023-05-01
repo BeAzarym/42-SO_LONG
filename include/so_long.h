@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:42:25 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/04/29 20:56:17 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/01 11:48:08 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 # define ERR_INVALID_CHARSET "[ERROR]	Invalid charset in the map.\n"
 # define ERR_EMPTY_MAP "[ERROR]	Map is empty or a line is empty.\n"
 # define ERR_MALLOC_CRASH "[ERROR]	Malloc failed!\n"
+# define ERR_INVALID_MAP_SHAPE "[ERROR]	Map must be rectangular.\n"
+# define ERR_MAP_WALL "[ERROR]	Map must be closed by wall.\n"
 
 typedef struct s_map_data
 {
@@ -59,10 +61,12 @@ typedef struct s_game
 
 //	PARSING
 
-int				get_map_width(char **argv);
 int				is_valid_extension(char *arg);
 char			**get_map(char **argv, t_game *game);
 int				is_valid_map(t_map *map);
+void			get_map_items(t_game *game);
+int				is_expected_shape(t_game *game);
+int				is_closed_map(t_game *game);
 
 // INIT STRUCT
 t_game			*init_game_struct(t_game *game);

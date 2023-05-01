@@ -6,20 +6,20 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 13:40:02 by cchabeau          #+#    #+#             */
-/*   Updated: 2022/10/29 15:53:59 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/01 10:57:30 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, int len)
 {
-	size_t	i;
+	int	i;
 	char	*str;
 
 	if (!s)
 		return (NULL);
-	if (ft_strlen(s) < start)
+	if (ft_strlen(s) < (int)start)
 		len = 0;
 	else if (ft_strlen(s + start) <= len)
 		len = ft_strlen(s + start);
