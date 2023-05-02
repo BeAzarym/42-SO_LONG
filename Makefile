@@ -8,13 +8,20 @@ SRC	=	main.c \
 		parsing/init_struct.c \
 		parsing/pathfinding.c \
 		utils/ft_error.c \
+		graphics/init_mlx.c \
+		graphics/init_player.c \
+		graphics/init_player.c \
+		graphics/display_imgs.c \
+		graphics/clear_imgs.c \
+		graphics/mouvement.c \
+		graphics/event.c \
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC))
 
 OBJS =	$(SRCS:.c=.o)
 
 LIBFT = make -C ./src/libft
-# MLX = make -C mlx
+MLX = make -C ./src/mlx_linux
 
 INC_DIR = include
 SRC_DIR = src
@@ -33,15 +40,18 @@ all:	$(NAME)
 
 $(NAME): 	$(OBJS) 
 	$(LIBFT)
-	$(CC) $(CFLAGS) -Isrc/libft -I $(INC_DIR) -o $(NAME) $(OBJS) -Lsrc/libft -lft
+	$(MLX)
+	$(CC) $(CFLAGS) -Isrc/libft -Isrc/mlx_linux -I $(INC_DIR) -o $(NAME) $(OBJS) -Lsrc/libft -lft -Lsrc/mlx_linux -lmlx
 
 clean:
 	$(RM) $(OBJS)
 	make -C ./src/libft clean
+	make -C ./src/mlx clean
 
 fclean:	clean
 	$(RM) $(NAME)
 	make -C ./src/libft fclean
+	make -C ./src/mlx fclean
 
 re:	fclean all 
 

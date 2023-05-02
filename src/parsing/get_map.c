@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:44:31 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/01 11:52:25 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/02 19:56:36 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ char	**get_map(char **argv, t_game *game)
 	int	fd;
 
 	if (!is_valid_extension(argv[1]))
-		ft_free(game, ERR_BAD_EXTENSION);
+		exit_faillure(game, ERR_BAD_EXTENSION);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
-		ft_free(game, ERR_PATH);
+		exit_faillure(game, ERR_PATH);
 	game->map->map = malloc(sizeof(char *) * (get_map_width(argv) + 1));
 	if (!game->map->map)
-		ft_free(game, ERR_MALLOC_CRASH);
+		exit_faillure(game, ERR_MALLOC_CRASH);
 	while (1)
 	{
 		game->map->map[game->map->map_width] = get_next_line(fd);
@@ -54,6 +54,7 @@ char	**get_map(char **argv, t_game *game)
 		game->map->map_width++;
 	}
 	game->map->map[game->map->map_width] = NULL;
+	game->map->map_length = ft_strlen(game->map->map[0]);
 	close(fd);
 	return (game->map->map);
 }

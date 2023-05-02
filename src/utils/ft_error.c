@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 18:43:19 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/01 18:25:44 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/02 20:16:50 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	free_map_struct(t_map *map)
 	free(map);
 }
 
-void	ft_free(t_game *game, char *error_msg)
+void	exit_faillure(t_game *game, char *error_msg)
 {
 	if (game)
 	{
@@ -46,9 +46,25 @@ void	ft_free(t_game *game, char *error_msg)
 		free(game->player);
 		free(game->img);
 		free(game);
+		clear_imgs(game);
 	}
 	ft_putstr_fd("Error\n", 2);
 	if (error_msg)
 		ft_putstr_fd(error_msg, 2);
 	exit(EXIT_FAILURE);
+}
+
+int	exit_success(t_game *game)
+{
+	if (game)
+	{
+		free_map_struct(game->map);
+		free(game->map_data);
+		free(game->player);
+		free(game->img);
+		free(game);
+		clear_imgs(game);
+	}
+	exit(EXIT_SUCCESS);
+	return (0);
 }

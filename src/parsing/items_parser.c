@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:12:49 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/01 18:03:21 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/02 19:56:53 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ static void	init_pos_item(t_game *game, int x, int y, char type)
 static void	as_requiered_items(t_game *game)
 {
 	if (!game->map_data->player)
-		ft_free(game, ERR_TOO_FEW_PLAYER);
+		exit_faillure(game, ERR_TOO_FEW_PLAYER);
 	else if (game->map_data->player > 1)
-		ft_free(game, ERR_TOO_MUCH_PLAYER);
+		exit_faillure(game, ERR_TOO_MUCH_PLAYER);
 	if (!game->map_data->exit)
-		ft_free(game, ERR_TOO_FEW_EXIT);
+		exit_faillure(game, ERR_TOO_FEW_EXIT);
 	else if (game->map_data->exit > 1)
-		ft_free(game, ERR_TOO_MUCH_EXIT);
+		exit_faillure(game, ERR_TOO_MUCH_EXIT);
 	if (!game->map_data->coin)
-		ft_free(game, ERR_TOO_FEW_COLLECTIBLES);
+		exit_faillure(game, ERR_TOO_FEW_COLLECTIBLES);
 }
 
 void	get_map_items(t_game *game)
