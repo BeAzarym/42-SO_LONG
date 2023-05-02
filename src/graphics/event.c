@@ -6,13 +6,13 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:52:12 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/02 20:17:16 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/02 22:43:14 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-int check_input_key(int key, t_game *game)
+int	check_input_key(int key, t_game *game)
 {
 	if (key == KEY_ESC)
 		exit_success(game);
