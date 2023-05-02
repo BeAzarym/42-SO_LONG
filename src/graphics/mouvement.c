@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:35:25 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/02 19:59:39 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/02 22:17:05 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,9 @@ static void	move_y(char key, t_game *game)
 	int	y;
 
 	x = game->player->x;
-	y = game->player->y;
 	if (key == KEY_UP || key == KEY_W)
 	{
-		game->player->y--;
+		y = --game->player->y;
 		game->player->move++;
 		game_event(game);
 		game->map->map[y][x] = 'P';
@@ -43,7 +42,7 @@ static void	move_y(char key, t_game *game)
 	}
 	else if (key == KEY_DOWN || key == KEY_S)
 	{
-		game->player->y++;
+		y = ++game->player->y;
 		game->player->move++;
 		game_event(game);
 		game->map->map[y][x] = 'P';
@@ -56,23 +55,22 @@ static void	move_x(char key, t_game *game)
 	int	x;
 	int	y;
 
-	x = game->player->x;
 	y = game->player->y;
 	if (key == KEY_RIGHT || key == KEY_D)
 	{
-		game->player->x++;
-		game->player->move++;
-		game_event(game);
-		game->map->map[y][x] = 'P';
-		game->map->map[y][x + 1] = game->player->charset_save;
-	}
-	else if (key == KEY_LEFT || key == KEY_A)
-	{
-		game->player->x--;
+		x = ++game->player->x;
 		game->player->move++;
 		game_event(game);
 		game->map->map[y][x] = 'P';
 		game->map->map[y][x - 1] = game->player->charset_save;
+	}
+	else if (key == KEY_LEFT || key == KEY_A)
+	{
+		x = --game->player->x;
+		game->player->move++;
+		game_event(game);
+		game->map->map[y][x] = 'P';
+		game->map->map[y][x + 1] = game->player->charset_save;
 	}
 }
 
