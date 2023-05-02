@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 18:17:15 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/01 18:03:34 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/02 09:35:06 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,22 @@ static t_player	*init_player_data(t_game *game)
 	return (game->player);
 }
 
+static t_img	*init_img_struct(t_game *game)
+{
+	game->img = malloc(sizeof(t_img));
+	if (!game->img)
+		ft_free(game, ERR_MALLOC_CRASH);
+	game->img->height = -1;
+	game->img->width = -1;
+	game->img->walls = NULL;
+	game->img->floor = NULL;
+	game->img->player = NULL;
+	game->img->exit_open = NULL;
+	game->img->exit_close = NULL;
+	game->img->coin = NULL;
+	return (game->img);
+}
+
 t_game	*init_game_struct(t_game *game)
 {
 	game = malloc(sizeof(t_game));
@@ -69,6 +85,10 @@ t_game	*init_game_struct(t_game *game)
 	game->player = NULL;
 	game->player = init_player_data(game);
 	if (!game->player)
+		ft_free(game, ERR_MALLOC_CRASH);
+	game->img = NULL;
+	game->img = init_img_struct(game);
+	if (!game->img)
 		ft_free(game, ERR_MALLOC_CRASH);
 	return (game);
 }

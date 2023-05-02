@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:59:37 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/01 17:12:57 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/01 22:27:13 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ char	**ft_arraydup(char **array, int size)
 	int		i;
 	char	**new_arr;
 
-	new_arr = malloc(sizeof(char *) * (size + 1));
 	if (!array)
+		return (NULL);
+	new_arr = malloc(sizeof(char *) * (size + 1));
+	if (!new_arr)
 		return (NULL);
 	i = 0;
 	while (array[i] && i < size)

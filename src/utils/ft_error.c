@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 18:43:19 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/01 18:01:46 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/01 18:25:44 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,13 @@ void	ft_free(t_game *game, char *error_msg)
 {
 	if (game)
 	{
-		free(game->map_data);
 		free_map_struct(game->map);
+		free(game->map_data);
 		free(game->player);
+		free(game->img);
 		free(game);
 	}
+	ft_putstr_fd("Error\n", 2);
 	if (error_msg)
 		ft_putstr_fd(error_msg, 2);
 	exit(EXIT_FAILURE);

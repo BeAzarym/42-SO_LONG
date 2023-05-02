@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:42:25 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/01 17:52:07 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/01 18:19:49 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,18 @@ typedef struct s_player
 	int			move;
 }				t_player;
 
+typedef struct s_img
+{
+	int			height;
+	int			width;
+	void		*walls;
+	void		*floor;
+	void		*player;
+	void		*exit_open;
+	void		*exit_close;
+	void		*coin;
+}				t_img;
+
 typedef struct s_game
 {
 	void		*mlx;
@@ -66,6 +78,7 @@ typedef struct s_game
 	t_map_data	*map_data;
 	t_map		*map;
 	t_player	*player;
+	t_img		*img;
 }				t_game;
 
 //	PARSING
