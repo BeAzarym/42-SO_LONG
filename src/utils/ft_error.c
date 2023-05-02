@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 18:43:19 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/02 20:16:50 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/02 22:21:25 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,10 @@ void	exit_faillure(t_game *game, char *error_msg)
 		free_map_struct(game->map);
 		free(game->map_data);
 		free(game->player);
-		free(game->img);
-		free(game);
 		clear_imgs(game);
+		free(game->img);
+		mlx_destroy_window(game->mlx, game->windows);
+		free(game);
 	}
 	ft_putstr_fd("Error\n", 2);
 	if (error_msg)
@@ -61,9 +62,10 @@ int	exit_success(t_game *game)
 		free_map_struct(game->map);
 		free(game->map_data);
 		free(game->player);
-		free(game->img);
-		free(game);
 		clear_imgs(game);
+		free(game->img);
+		mlx_destroy_window(game->mlx, game->windows);
+		free(game);
 	}
 	exit(EXIT_SUCCESS);
 	return (0);
