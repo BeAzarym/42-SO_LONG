@@ -41,7 +41,7 @@ all:	$(NAME)
 $(NAME): 	$(OBJS) 
 	$(LIBFT)
 	$(MLX)
-	$(CC) $(CFLAGS) -Isrc/libft -Isrc/mlx_linux -I $(INC_DIR) -o $(NAME) $(OBJS) -Lsrc/libft -lft -Lsrc/mlx_linux -lmlx
+	$(CC) $(CFLAGS) -Isrc/libft -Isrc/mlx_linux -I $(INC_DIR) -o $(NAME) $(OBJS) -Lsrc/libft -lft -lXext -lX11 -lm -lz -Lsrc/mlx_linux -lmlx
 
 clean:
 	$(RM) $(OBJS)
