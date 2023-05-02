@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:43:25 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/02 22:42:32 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/02 22:48:38 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ void	clear_imgs(t_game *game)
 		mlx_destroy_image(game->mlx, game->img->floor);
 	if (game->img->walls)
 		mlx_destroy_image(game->mlx, game->img->walls);
-	clear_imgs(game);
+	clear_player(game);
 }
