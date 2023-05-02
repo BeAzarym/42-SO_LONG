@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:42:25 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/02 23:57:25 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/03 00:04:18 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stdio.h>
 
 # define KEY_PRESS 2
-# define KEY_RELEASE 3
 # define KEY_W 13
 # define KEY_A 0
 # define KEY_S 1
