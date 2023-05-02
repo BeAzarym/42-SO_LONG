@@ -46,12 +46,12 @@ $(NAME): 	$(OBJS)
 clean:
 	$(RM) $(OBJS)
 	make -C ./src/libft clean
-	make -C ./src/mlx clean
+	make -C ./src/mlx_linux clean
 
 fclean:	clean
 	$(RM) $(NAME)
 	make -C ./src/libft fclean
-	make -C ./src/mlx fclean
+	make -C ./src/mlx_linux fclean
 
 re:	fclean all 
 
