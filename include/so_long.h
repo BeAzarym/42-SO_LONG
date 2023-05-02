@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:42:25 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/03 00:04:59 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/03 00:19:37 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "../src/libft/libft.h"
-# include "../src/mlx_linux/mlx.h"
+# include "../src/mlx/mlx.h"
 # include <fcntl.h>
 # include <stdio.h>
 
