@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:42:25 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/03 00:04:18 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/03 00:04:59 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,4 +127,5 @@ void			exit_faillure(t_game *game, char *error_msg);
 int				exit_success(t_game *game);
 void			free_tab(char **array);
 void			free_map_struct(t_map *map);
+
 #endif

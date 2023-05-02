@@ -20,7 +20,7 @@ SRCS = $(addprefix $(SRC_DIR)/, $(SRC))
 OBJS =	$(SRCS:.c=.o)
 
 LIBFT = make -C ./src/libft
-MLX = make -C ./src/mlx_linux
+MLX = make -C ./src/mlx
 
 INC_DIR = include
 SRC_DIR = src
@@ -40,17 +40,17 @@ all:	$(NAME)
 $(NAME): 	$(OBJS) 
 	$(LIBFT)
 	$(MLX)
-	$(CC) $(CFLAGS) -Isrc/libft -Isrc/mlx_linux -I $(INC_DIR) -o $(NAME) $(OBJS) -Lsrc/libft -lft -lXext -lX11 -lm -lz -Lsrc/mlx_linux -lmlx
+	$(CC) $(CFLAGS) -Isrc/libft -Isrc/mlx -I $(INC_DIR) -o $(NAME) $(OBJS) -Lsrc/libft -lft -framework OpenGL -framework Appkit -Lsrc/mlx -lmlx
 
 clean:
 	$(RM) $(OBJS)
 	make -C ./src/libft clean
-	make -C ./src/mlx_linux clean
+	make -C ./src/mlx clean
 
 fclean:	clean
 	$(RM) $(NAME)
 	make -C ./src/libft fclean
-	make -C ./src/mlx_linux fclean
+	make -C ./src/mlx fclean
 
 re:	fclean all 
 
