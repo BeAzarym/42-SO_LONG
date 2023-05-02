@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 18:17:15 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/02 20:05:04 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/02 23:55:05 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ static t_img	*init_img_struct(t_game *game)
 	game->img->height = -1;
 	game->img->width = -1;
 	game->img->walls = NULL;
+	game->img->player = NULL;
 	game->img->floor = NULL;
 	game->img->exit_open = NULL;
 	game->img->exit_close = NULL;

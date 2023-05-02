@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:07:10 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/02 22:42:55 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/02 23:58:57 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,25 @@ static void	load_img_win(t_game *game, int x, int y, char type)
 {
 	if (type == '1')
 		mlx_put_image_to_window(game->mlx, game->windows, game->img->walls, (y
-				* 16), ((x * 16)));
+				* 16), (x * 16));
 	if (type == '0')
 		mlx_put_image_to_window(game->mlx, game->windows, game->img->floor, (y
-				* 16), ((x * 16)));
+				* 16), (x * 16));
 	if (type == 'P')
 		mlx_put_image_to_window(game->mlx, game->windows,
-			game->img->player_f[1], (y * 16), ((x * 16)));
+			game->img->player, (y * 16), (x * 16));
 	if (type == 'E')
 	{
 		if (game->player->coin == game->map_data->coin)
 			mlx_put_image_to_window(game->mlx, game->windows,
-				game->img->exit_open, (y * 16), ((x * 16)));
+				game->img->exit_open, (y * 16), (x * 16));
 		else
 			mlx_put_image_to_window(game->mlx, game->windows,
-				game->img->exit_close, (y * 16), ((x * 16)));
+				game->img->exit_close, (y * 16), (x * 16));
 	}
 	if (type == 'C')
 		mlx_put_image_to_window(game->mlx, game->windows, game->img->coin, (y
-				* 16), ((x * 16) + 20));
+				* 16), (x * 16));
 }
 
 void	display_imgs(t_game *game)

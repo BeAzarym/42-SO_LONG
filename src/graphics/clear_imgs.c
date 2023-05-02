@@ -6,31 +6,11 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:43:25 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/02 22:48:38 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/02 23:55:54 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
-
-static void	clear_player(t_game *game)
-{
-	mlx_destroy_image(game->mlx, game->img->player_f[0]);
-	mlx_destroy_image(game->mlx, game->img->player_f[1]);
-	mlx_destroy_image(game->mlx, game->img->player_f[2]);
-	mlx_destroy_image(game->mlx, game->img->player_f[3]);
-	mlx_destroy_image(game->mlx, game->img->player_r[0]);
-	mlx_destroy_image(game->mlx, game->img->player_r[1]);
-	mlx_destroy_image(game->mlx, game->img->player_r[2]);
-	mlx_destroy_image(game->mlx, game->img->player_r[3]);
-	mlx_destroy_image(game->mlx, game->img->player_b[0]);
-	mlx_destroy_image(game->mlx, game->img->player_b[1]);
-	mlx_destroy_image(game->mlx, game->img->player_b[2]);
-	mlx_destroy_image(game->mlx, game->img->player_b[3]);
-	mlx_destroy_image(game->mlx, game->img->player_l[0]);
-	mlx_destroy_image(game->mlx, game->img->player_l[1]);
-	mlx_destroy_image(game->mlx, game->img->player_l[2]);
-	mlx_destroy_image(game->mlx, game->img->player_l[3]);
-}
 
 void	clear_imgs(t_game *game)
 {
@@ -44,5 +24,6 @@ void	clear_imgs(t_game *game)
 		mlx_destroy_image(game->mlx, game->img->floor);
 	if (game->img->walls)
 		mlx_destroy_image(game->mlx, game->img->walls);
-	clear_player(game);
+	if (game->img->player)
+		mlx_destroy_image(game->mlx, game->img->player);
 }

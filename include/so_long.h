@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:42:25 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/02 22:31:34 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/02 23:57:25 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,7 @@ typedef struct s_img
 	int			width;
 	void		*walls;
 	void		*floor;
-	void		*player_f[4];
-	void		*player_b[4];
-	void		*player_l[4];
-	void		*player_r[4];
+	void		*player;
 	void		*exit_open;
 	void		*exit_close;
 	void		*coin;
@@ -115,9 +112,7 @@ int				path_finding(t_game *game, char **map, int x, int y);
 //	MLX
 
 void			init_mlx(t_game *game);
-void			init_player(t_game *game);
 void			init_items(t_game *game);
-void			init_imgs(t_game *game);
 void			clear_imgs(t_game *game);
 void			display_imgs(t_game *game);
 void			do_move(int key, t_game *game);

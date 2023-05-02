@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:26:25 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/02 22:43:31 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/02 23:58:31 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,9 @@ void	init_items(t_game *game)
 	game->img->exit_open = mlx_xpm_file_to_image(game->mlx,
 			"src/img/DOOR_2.xpm", &game->img->width, &game->img->height);
 	if (!game->img->exit_close)
+		exit_faillure(game, ERR_IMG_INIT);
+	game->img->player = mlx_xpm_file_to_image(game->mlx, "src/img/player.xpm",
+			&game->img->width, &game->img->height);
+	if (!game->img->player)
 		exit_faillure(game, ERR_IMG_INIT);
 }

@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:56:28 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/02 20:10:41 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/02 23:57:18 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,6 @@ void	init_mlx(t_game *game)
 			+ 16, "A Simple game");
 	if (!game->windows)
 		exit_faillure(game, ERR_MLX_WINDOWS);
-	init_imgs(game);
-	display_imgs(game);
-}
-
-void	init_imgs(t_game *game)
-{
-	init_player(game);
 	init_items(game);
+	display_imgs(game);
 }
