@@ -10,7 +10,7 @@ SRC	=	main.c \
 		utils/ft_error.c \
 		graphics/init_mlx.c \
 		graphics/init_player.c \
-		graphics/init_player.c \
+		graphics/init_items.c \
 		graphics/display_imgs.c \
 		graphics/clear_imgs.c \
 		graphics/mouvement.c \
