@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:07:10 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/03 10:42:25 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/03 12:32:09 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	load_img_win(t_game *game, int x, int y, char type)
 		mlx_put_image_to_window(game->mlx, game->windows, game->img->floor, (y
 				* 16), (x * 16));
 	if (type == 'P')
-		load_player_img(game, x, y);
+		load_player_img(game, y, x);
 	if (type == 'E')
 	{
 		if (game->player->coin == game->map_data->coin)
