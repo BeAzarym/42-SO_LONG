@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:07:10 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/03 10:40:41 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/03 10:42:25 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,6 @@ static void	load_coin_img(t_game *game, int x, int y)
 
 static void	load_player_img(t_game *game, int x, int y)
 {
-	int	x;
-	int	y;
-
-	x = game->player->x;
-	y = game->player->y;
 	if (x == game->map_data->exit_x && y == game->map_data->exit_y
 		&& game->player->coin < game->map_data->coin)
 	{
