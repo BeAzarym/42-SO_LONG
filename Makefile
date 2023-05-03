@@ -50,7 +50,7 @@ clean:
 fclean:	clean
 	$(RM) $(NAME)
 	make -C ./src/libft fclean
-	make -C ./src/mlx fclean
+	make -C ./src/mlx clean
 
 re:	fclean all 
 
