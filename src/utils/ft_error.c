@@ -6,7 +6,7 @@
 /*   By: cchabeau <cchabeau@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 18:43:19 by cchabeau          #+#    #+#             */
-/*   Updated: 2023/05/02 22:21:25 by cchabeau         ###   ########.fr       */
+/*   Updated: 2023/05/03 12:57:45 by cchabeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	exit_faillure(t_game *game, char *error_msg)
 		free(game->player);
 		clear_imgs(game);
 		free(game->img);
-		mlx_destroy_window(game->mlx, game->windows);
+		if (game->windows)
+			mlx_destroy_window(game->mlx, game->windows);
 		free(game);
 	}
 	ft_putstr_fd("Error\n", 2);
